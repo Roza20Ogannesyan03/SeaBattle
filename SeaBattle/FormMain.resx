@@ -135,15 +135,10 @@
   <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonRight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAOCAIAAAC3hDtuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAPRJREFUOE+tlFsOREAQRWfEEqzJ/vfgd7zCDxHmjFuktZJ5ZM5H56q6fRUtbstn
-        VBtlWQ7DYBdVZW2PT6NJVBbitqJLa3t8PTUkSVIURZqmaGt7xNHzPJsKoFjXtXIRTdMgWJn9ys/6Zmo9
-        u7gH6DZAfZomcx9xosNB2ClBCvNqdglA08qybLeFxKW2bR8B7GGl6I5GkZZy5RcUqcTRNs8G21x4MoE2
-        6xGi4ujX+9sIPzhrHyFXBhH5f4nW1KxoGcSbaKou1l4hNM9zaWufeNnk2OEEXDgxF2ufICqO7vveDiKg
-        67pxHHVuIfxMrvxExdF/Y1me4hxpil7q1HUAAAAASUVORK5CYII=
-</value>
-  </data>
+  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

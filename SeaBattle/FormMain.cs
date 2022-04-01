@@ -16,8 +16,10 @@ namespace SeaBattle
         public int height = 4;
         public int width = 4;
         public int[,] field;
+        public int[,] end;
         public FormMain()
         {
+            end = new int[height, width];
             field = new int[height, width];
             InitializeComponent();
             LoadField();
@@ -26,8 +28,6 @@ namespace SeaBattle
             GridField();
 
         }
-        
-
         public void GridField()
         {
             for (int i = 0; i < height; i++)
@@ -55,16 +55,20 @@ namespace SeaBattle
         }
         private void LoadField()
         {
-            StreamReader file = new StreamReader("field.txt");
+            StreamReader file1 = new StreamReader("field.txt");
+            StreamReader file2 = new StreamReader("EndGame.txt");
             for (int i = 0; i < height; i++)
             {
-                string[] s = file.ReadLine().Split();
+                string[] s1 = file1.ReadLine().Split();
+                string[] s2 = file2.ReadLine().Split();
                 for (int j = 0; j < width; j++)
                 {
-                    field[i, j] = int.Parse(s[j]);
+                    field[i, j] = int.Parse(s1[j]);
+                    end[i, j] = int.Parse(s2[j]);
                 }
             }
-            file.Close();
+            file1.Close();
+            file2.Close();
         }
 
         private void buttonRight_Click(object sender, EventArgs e)
@@ -78,6 +82,7 @@ namespace SeaBattle
                     {
                         if (j + 1 < width) mas[i, j + 1] = 2;
                         else MessageBox.Show("Туда нельзя");
+                       // break;
                     }
                     else
                     {
@@ -111,6 +116,17 @@ namespace SeaBattle
             }
             field = mas;
             GridField();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (field == end) MessageBox.Show("Поздравляю, вы выиграли!");
+            else MessageBox.Show("Вы проиграли");
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
