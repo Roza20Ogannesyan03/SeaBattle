@@ -29,56 +29,55 @@ namespace SeaBattle
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvField = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvMove = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.buttonConfirm = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMove)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvField
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvField.AllowUserToAddRows = false;
+            this.dgvField.AllowUserToDeleteRows = false;
+            this.dgvField.BackgroundColor = System.Drawing.Color.White;
+            this.dgvField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvField.ColumnHeadersVisible = false;
+            this.dgvField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(69, 103);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(204, 204);
-            this.dataGridView1.TabIndex = 0;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Magenta;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvField.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvField.Location = new System.Drawing.Point(69, 103);
+            this.dgvField.MultiSelect = false;
+            this.dgvField.Name = "dgvField";
+            this.dgvField.ReadOnly = true;
+            this.dgvField.RowHeadersVisible = false;
+            this.dgvField.RowTemplate.Height = 50;
+            this.dgvField.Size = new System.Drawing.Size(204, 204);
+            this.dgvField.TabIndex = 0;
             // 
             // Column1
             // 
@@ -108,24 +107,32 @@ namespace SeaBattle
             this.Column4.ReadOnly = true;
             this.Column4.Width = 50;
             // 
-            // dataGridView2
+            // dgvMove
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMove.AllowUserToAddRows = false;
+            this.dgvMove.AllowUserToDeleteRows = false;
+            this.dgvMove.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvMove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMove.ColumnHeadersVisible = false;
+            this.dgvMove.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
             this.Column5});
-            this.dataGridView2.GridColor = System.Drawing.Color.CornflowerBlue;
-            this.dataGridView2.Location = new System.Drawing.Point(559, 63);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 50;
-            this.dataGridView2.Size = new System.Drawing.Size(108, 309);
-            this.dataGridView2.TabIndex = 1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Magenta;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMove.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMove.GridColor = System.Drawing.Color.CornflowerBlue;
+            this.dgvMove.Location = new System.Drawing.Point(559, 63);
+            this.dgvMove.Name = "dgvMove";
+            this.dgvMove.ReadOnly = true;
+            this.dgvMove.RowHeadersVisible = false;
+            this.dgvMove.RowTemplate.Height = 50;
+            this.dgvMove.Size = new System.Drawing.Size(128, 309);
+            this.dgvMove.TabIndex = 1;
             // 
             // Column6
             // 
@@ -143,12 +150,13 @@ namespace SeaBattle
             // 
             // buttonUp
             // 
-            this.buttonUp.Location = new System.Drawing.Point(472, 394);
+            this.buttonUp.Location = new System.Drawing.Point(482, 394);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(33, 32);
+            this.buttonUp.Size = new System.Drawing.Size(40, 32);
             this.buttonUp.TabIndex = 2;
             this.buttonUp.Text = "v";
             this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonDown
             // 
@@ -158,6 +166,7 @@ namespace SeaBattle
             this.buttonDown.TabIndex = 3;
             this.buttonDown.Text = "^";
             this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonRight
             // 
@@ -165,55 +174,19 @@ namespace SeaBattle
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(33, 32);
             this.buttonRight.TabIndex = 4;
-            this.buttonRight.Text = "->";
+            this.buttonRight.Text = ">";
             this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonLeft
             // 
-            this.buttonLeft.Location = new System.Drawing.Point(723, 394);
+            this.buttonLeft.Location = new System.Drawing.Point(699, 394);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(33, 32);
             this.buttonLeft.TabIndex = 5;
-            this.buttonLeft.Text = "<-";
+            this.buttonLeft.Text = "<";
             this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(472, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 31);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "v";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(559, 454);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 31);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "^";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(634, 454);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 31);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "->";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(723, 454);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 31);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "<-";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // button5
             // 
@@ -236,28 +209,35 @@ namespace SeaBattle
             this.label1.TabIndex = 11;
             this.label1.Text = "Уровень 1";
             // 
+            // buttonConfirm
+            // 
+            this.buttonConfirm.Location = new System.Drawing.Point(559, 446);
+            this.buttonConfirm.Name = "buttonConfirm";
+            this.buttonConfirm.Size = new System.Drawing.Size(108, 37);
+            this.buttonConfirm.TabIndex = 12;
+            this.buttonConfirm.Text = "Подтвердить ";
+            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvMove);
+            this.Controls.Add(this.dgvField);
             this.Name = "FormMain";
             this.Text = "Морской бой(многопоточность)";
             this.Load += new System.EventHandler(this.FormMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,24 +245,21 @@ namespace SeaBattle
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvField;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvMove;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonLeft;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonConfirm;
     }
 }
 

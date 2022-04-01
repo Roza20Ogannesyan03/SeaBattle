@@ -17,42 +17,41 @@ namespace SeaBattle
         public int width = 4;
         public int[,] field;
         public int[,] end;
+        public int stepIndex = 1;
         public FormMain()
         {
-            end = new int[height, width];
-            field = new int[height, width];
             InitializeComponent();
-            LoadField();
-            dataGridView1.Rows.Add(height);
-            dataGridView2.Rows.Add(6);
-            GridField();
-
         }
+        
         public void GridField()
         {
+
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
                     if (field[i, j] == 1)
                     {
-                        dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
+                        dgvField.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
                     }
                     else if (field[i, j] == 2)
                     {
-                        dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Black;
+                        dgvField.Rows[i].Cells[j].Style.BackColor = Color.Black;
                     }
                     else
                     {
-                        dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.White;
+                        dgvField.Rows[i].Cells[j].Style.BackColor = Color.White;
                     }
+
+                    // dgvField.ClearSelection();
                 }
             }
-            dataGridView2.Rows[0].Cells[0].Style.BackColor = Color.Yellow;
-            dataGridView2.Rows[0].Cells[1].Style.BackColor = Color.Black;
+
 
 
         }
+
+
         private void LoadField()
         {
             StreamReader file1 = new StreamReader("field.txt");
@@ -71,62 +70,122 @@ namespace SeaBattle
             file2.Close();
         }
 
-        private void buttonRight_Click(object sender, EventArgs e)
+        private void buttonMove_Click(object sender, EventArgs e)
         {
-            var mas = new int[height, width];
+            if (dgvMove.CurrentCell.RowIndex == stepIndex)
+            {
+                var button = (Button)sender;
+                dgvMove.CurrentCell.Value = button.Text;
+                //dgvMove.ClearSelection();
+            }
+
+        }
+        private void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            //if (!string.IsNullOrEmpty(dgvMove.Rows[stepIndex].Cells[0].Value.ToString()) 
+            //    && !string.IsNullOrEmpty(dgvMove.Rows[stepIndex].Cells[1].Value.ToString()))
+            if (dgvMove.Rows[stepIndex].Cells[0].Value != null && dgvMove.Rows[stepIndex].Cells[1].Value != null)
+            {
+                stepIndex++;
+                dgvMove.Rows.Add(1);
+            }
+        }
+        
+        public bool TryStep(string stepShip, int y, int x, int[,] tempField)
+        {
+            switch (stepShip)
+            {
+                case "^":
+                    if (y - 1 < 0)
+                        return true;
+                    else
+                        tempField[y - 1, x] = field[y, x];
+                    break;
+                case "v":
+                    if (y + 1 > height - 1)
+                        return true;
+                    else
+                        tempField[y + 1, x] = field[y, x];
+                    break;
+                case ">":
+                    if (x + 1 > width - 1)
+                        return true;
+                    else
+                        tempField[y, x + 1] = field[y, x];
+                    break;
+                case "<":
+                    if (x - 1 < 0)
+                        return true;
+                    else
+                        tempField[y, x - 1] = field[y, x];
+                    break;
+            }
+            return false;
+        }
+        public bool CheckWin()
+        {
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    if (field[i, j] == 2)
-                    {
-                        if (j + 1 < width) mas[i, j + 1] = 2;
-                        else MessageBox.Show("Туда нельзя");
-                       // break;
-                    }
-                    else
-                    {
-                        mas[i, j] = field[i, j];
-                    }
+                    if (field[i, j] != end[i, j]) return false;
 
                 }
             }
-            field = mas;
-            GridField();
+            return true;
         }
-
-        private void buttonLeft_Click(object sender, EventArgs e)
-        {
-            var mas = new int[height, width];
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    if (field[i, j] == 2)
-                    {
-                        if (j - 1 >= 0) mas[i, j - 1] = 2;
-                        else MessageBox.Show("Туда нельзя");
-                    }
-                    else
-                    {
-                        mas[i, j] = field[i, j];
-                    }
-
-                }
-            }
-            field = mas;
-            GridField();
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
-            if (field == end) MessageBox.Show("Поздравляю, вы выиграли!");
+            bool lose = false;
+            for (int i = 1; i < stepIndex; i++)
+            {
+                lose = false;
+                var stepYellow = dgvMove.Rows[i].Cells[0].Value.ToString();
+                var stepBlack = dgvMove.Rows[i].Cells[1].Value.ToString();
+                var tempField = new int[height, width];
+                for (int y = 0; y < height; y++)
+                {
+                    for (int x = 0; x < width; x++)
+                    {
+                        if (field[y, x] == 1)
+                            lose = TryStep(stepYellow, y, x, tempField);
+                        else if(field[y,x] == 2)
+                            lose = TryStep(stepBlack, y, x, tempField);
+                                             
+                        if (lose)
+                            goto finish;
+
+                    }
+                }
+                field = tempField;
+                GridField();
+            }
+
+            finish:
+            if (!lose && CheckWin()) MessageBox.Show("Поздравляю, вы выиграли!");
             else MessageBox.Show("Вы проиграли");
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            end = new int[height, width];
+            field = new int[height, width];
+            LoadField();
+            dgvField.Rows.Add(height);
+            dgvMove.Rows.Add(2);
+            dgvMove.Rows[0].Cells[0].Style.BackColor = Color.Yellow;
+            dgvMove.Rows[0].Cells[1].Style.BackColor = Color.Black;
+            dgvMove.ClearSelection();
+            dgvField.ClearSelection();
+            dgvMove.Rows[0].Cells[0].Selected = false;
+            //dgvMove.Rows[0].Cells[0].Frozen = true;
+            //dgvMove.Rows[0].Cells[0].Frozen 
+            dgvField.Enabled = false;
+
+            GridField();
 
         }
+
+
     }
 }
